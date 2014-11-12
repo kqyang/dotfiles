@@ -89,6 +89,11 @@
   svnr = svn rebase
   svnd = svn dcommit
   svnl = svn log --oneline --show-commit
+
+  meld = !~/bin/git-meld
+  ctags = !.git/hooks/ctags
+  export = push origin HEAD:refs/for/master
+  draft = push origin HEAD:refs/drafts/master
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -96,10 +101,13 @@
 [mergetool "mvimdiff"]
   cmd="mvim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
   keepbackup=false
+[mergetool "meld-merge"]
+  cmd = meld --diff "$LOCAL" "$MERGED" "$REMOTE"
 [merge]
   summary = true
   verbosity = 1
-  tool = mvimdiff
+  # tool = mvimdiff
+  tool = meld-merge
 [apply]
   whitespace = nowarn
 [branch]
@@ -109,7 +117,9 @@
   # the usual default is to push all branches
   default = upstream
 [core]
+  deltaBaseCacheLimit = 1G
   autocrlf = false
+  filemode = false
   editor = vim
   excludesfile = ~/.yadr/git/gitignore
 [advice]
@@ -118,10 +128,17 @@
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
-	algorithm = patience
+  algorithm = patience
+  tool = meld
+[difftool]
+  prompt = false
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 [include]
   path = .gitconfig.user
+[clangformat]
+  style = Chromium
+[init]
+  templatedir = ~/.git_template

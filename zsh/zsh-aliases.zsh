@@ -16,3 +16,20 @@ alias -g G='| grep' # now you can do: ls foo G something
 # to find all files containing 'foo' in the name
 function fn() { ls **/*$1* }
 
+alias nmake='ninja -C out/Debug'
+alias explorer='nautilus'
+
+export DEFAULT_USER=kqyang
+export EDITOR=vim
+export BROWSER=google-chrome
+
+alias -s gz='tar -xzvf'
+alias -s bz2='tar -xjvf'
+alias -s zip='unzip'
+alias -s h=$EDITOR
+alias -s c=$EDITOR
+alias -s cc=$EDITOR
+alias -s txt=$EDITOR
+alias -s html=$BROWSER
+alias -s mp4=$BROWSER
+alias -s pdf=$BROWSER

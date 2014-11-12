@@ -25,7 +25,6 @@ alias psg="ps aux | grep "
 alias psr='ps aux | grep ruby'
 
 # Moving around
-alias cdb='cd -'
 alias cls='clear;ls'
 
 # Show human friendly numbers and colors
@@ -89,8 +88,8 @@ alias gr='git rebase'
 alias gra='git rebase --abort'
 alias ggrc='git rebase --continue'
 alias gbi='git rebase --interactive'
-alias gl='git l'
-alias glg='git l'
+alias gl='git log'
+# alias glg='git l'
 alias glog='git l'
 alias co='git co'
 alias gf='git fetch'
