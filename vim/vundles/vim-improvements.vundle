@@ -37,4 +37,5 @@ if filereadable(expand('~/.vimrc_internal'))
   source ~/.vimrc_internal
 else
   Bundle 'Valloric/YouCompleteMe'
+  let g:ycm_global_ycm_extra_conf = '~/.vim/chromium.ycm_extra_conf.py'
 endif

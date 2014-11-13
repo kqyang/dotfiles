@@ -152,8 +152,6 @@ map dl :,/^$/d<CR>
 map <C-C> "+y
 map <C-V> "+p
 
-noremap <C-M> :ClangFormat<CR>
-
 " ============================
 " SplitJoin plugin
 " ============================
