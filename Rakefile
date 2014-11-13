@@ -24,12 +24,18 @@ task :install => [:submodule_init, :submodules] do
     file_operation(Dir.glob('{vim,vimrc}'))
     Rake::Task["install_vundle"].execute
   end
+  # Workaround gvim border issue: http://stackoverflow.com/questions/9265984/strange-gvim-inner-borders
+  file_operation(Dir.glob('gtk/*')) if RUBY_PLATFORM.downcase.include?("linux")
 
   Rake::Task["install_prezto"].execute
 
   install_fonts
 
   install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
+
+  if RUBY_PLATFORM.downcase.include?("linux") && want_to_install?('gnome terminal color solarized')
+    install_gnome_terminal_solarized
+  end
 
   run_bundle_config
 
@@ -184,6 +190,21 @@ def install_fonts
   run %{ cp -f $HOME/.yadr/fonts/* $HOME/Library/Fonts } if RUBY_PLATFORM.downcase.include?("darwin")
   run %{ mkdir -p ~/.fonts && cp ~/.yadr/fonts/* "$_" && fc-cache -vf ~/.fonts } if RUBY_PLATFORM.downcase.include?("linux")
   puts
+end
+
+def install_gnome_terminal_solarized
+  puts "======================================================"
+  puts "Installing gnome terminal color solarized."
+  puts "======================================================"
+
+  gnome_terminal_path = File.join('gnome_terminal')
+  unless File.exists?(gnome_terminal_path)
+    run %{
+      cd $HOME/.yadr
+      git clone https://github.com/Anthony25/gnome-terminal-colors-solarized #{gnome_terminal_path}
+      #{gnome_terminal_path}/install.sh
+    }
+  end
 end
 
 def install_term_theme

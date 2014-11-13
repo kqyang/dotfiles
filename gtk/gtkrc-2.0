@@ -1,0 +1,5 @@
+# Workaround gvim border issue: http://stackoverflow.com/questions/9265984/strange-gvim-inner-borders
+style "vimfix" {
+  bg[NORMAL] = "#242424" # this matches my gvim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"

@@ -19,9 +19,9 @@ function fn() { ls **/*$1* }
 alias nmake='ninja -C out/Debug'
 alias explorer='nautilus'
 
-export DEFAULT_USER=kqyang
 export EDITOR=vim
 export BROWSER=google-chrome
+export TERM=screen-256color-bce
 
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
