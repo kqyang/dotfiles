@@ -77,10 +77,10 @@ imap <C-a> <esc>wa
 " Open the project tree and expose current file in the nerdtree with Ctrl-\
 nnoremap <silent> <C-\> :NERDTreeFind<CR>:vertical res 30<CR>
 
-" ,q to toggle quickfix window (where you have stuff like Ag)
-" ,oq to open it back up (rare)
+" ,q to open quickfix window (where you have stuff like Ag)
+nmap <silent> ,q  :botright copen<CR>
 nmap <silent> ,qc :cclose<CR>
-nmap <silent> ,qo :copen<CR>
+nmap <silent> ,qo :botright copen<CR>
 
 "Move back and forth through previous and next buffers
 "with ,z and ,x
