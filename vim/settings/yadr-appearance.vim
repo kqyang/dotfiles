@@ -10,7 +10,7 @@ if has("gui_running")
   set columns=190
 
   if has("gui_gtk2")
-    set guifont=Inconsolata\ XL\ 11,Inconsolata\ 14,Monaco\ 11
+    set guifont=Inconsolata\ XL\ 12,Inconsolata\ 15,Monaco\ 12
   else
     set guifont=Monaco:h14
   end
