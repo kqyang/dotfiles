@@ -18,6 +18,7 @@ function fn() { ls **/*$1* }
 
 alias nmake='ninja -C out/Debug'
 alias explorer='nautilus'
+alias v='f -e "gvim --remote"'
 
 export EDITOR=vim
 export BROWSER=google-chrome
