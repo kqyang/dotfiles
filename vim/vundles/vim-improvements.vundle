@@ -1,8 +1,8 @@
 Bundle "AndrewRadev/splitjoin.vim"
 Bundle "Raimondi/delimitMate"
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
+let delimitMate_expand_cr = 1
 " Bundle "Shougo/neocomplete.git"
-Bundle "briandoll/change-inside-surroundings.vim.git"
 Bundle "godlygeek/tabular"
 Bundle "tomtom/tcomment_vim.git"
 Bundle "bkad/CamelCaseMotion"
@@ -19,6 +19,7 @@ Bundle "skwp/YankRing.vim"
 Bundle "tomtom/tlib_vim.git"
 Bundle "tpope/vim-abolish"
 Bundle "tpope/vim-endwise.git"
+" html xml tags.
 Bundle "tpope/vim-ragtag"
 Bundle "tpope/vim-repeat.git"
 Bundle "tpope/vim-surround.git"
@@ -29,7 +30,8 @@ Bundle "vim-scripts/lastpos.vim"
 Bundle "vim-scripts/sudo.vim"
 Bundle "goldfeld/ctrlr.vim"
 
-Bundle 'fidian/hexmode'
+Bundle "fidian/hexmode"
+Bundle "szw/vim-g"
 if filereadable(expand('~/.vimrc_internal'))
   source ~/.vimrc_internal
 else

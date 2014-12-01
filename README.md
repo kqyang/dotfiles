@@ -172,27 +172,65 @@ of plugins above to learn more.
  * `,f` - instantly Find definition of class (must have exuberant ctags installed)
  * `,F` - same as `,f` but in a vertical split
  * `,gf` or `Ctrl-f` - same as vim normal gf (go to file), but in a vertical split (works with file.rb:123 line numbers also)
- * `gF` - standard vim mapping, here for completeness (go to file at line number)
+ * `gf` - standard vim mapping, here for completeness (go to file at line number)
  * `K` - Search the current word under the cursor and show results in quickfix window
  * `,K` - Grep the current word up to next exclamation point (useful for ruby foo! methods)
  * `Cmd-*` - highlight all occurrences of current word (similar to regular `*` except doesn't move)
  * `,hl` - toggle search highlight on and off
- * `,gg` or `,ag` - Grep command line, type between quotes. Uses Ag Silver Searcher.
+ * `,ag` - Grep command line, type between quotes. Uses Ag Silver Searcher.
  * `,gd` - Grep def (greps for 'def [function name]') when cursor is over the function name
  * `,gcf` - Grep Current File to find references to the current file
  * `//` - clear the search
  * `,T` - Tag list (list of methods in a class)
  * `,,w` (alias `,<esc>`) or `,,b` (alias `,<shift-esc>`) - EasyMotion, a vimperator style tool that highlights jump-points on the screen and lets you type to get there.
- * `,mc` - mark this word for MultiCursor (like sublime). Use `Ctrl-n` (next), `Ctrl-p` (prev), `Ctrl-x`(skip) to add more cursors, then do normal vim things like edit the word.
+ * `,mc` - mark this word for MultiCursor (like sublime). Use `Ctrl-n` (next), `Ctrl-p` (prev), `Ctrl-s`(skip) to add more cursors, then do normal vim things like edit the word. Go to Normal mode by pressing `v`; Single key command to switch to Insert mode such as `c` from Visual mode. `Ctrl-x` to exit MultiCursor mode.
+ * `:MultiCursorsFind {pattern}` - add multicursors using a regular expression.
  * `gK` - Opens the documentation for the word under the cursor.
- * Spacebar - Sneak - type two characters to move there in a line. Kind of like vim's `f` but more accurate.
+ * Spacebar - Sneak - type two characters to move there in a line. Kind of like vim's `f` but more accurate. `;` to go to the next match.
+ * Sneak is invoked with operators via `z`, e.g. `3dzqt` to delete up to the third instance of "qt".
+ * `:Gsearch` - get a buffer window of your search results then you can make the replacements inside the buffer window and 
+   `:Greplace` - to make your changes.
+ * `:Google` - google selected word or word under cursor; `:Googlef` prepend current file type.
+ * `,gg` - Google the current word under the cursor.
+ * `,cs` - Code search the current word under the cursor.
+
+#### Mark
+
+ * `m<label>` - Places a mark with label <label> (this is standard).
+ * '`<label>' - Goto mark line with label <label> (this is standard).`
+ * `'<label>` - Goto mark line and column with label <label> (this is standard).
+ * `,mt` - Toggles ShowMarks on and off.
+ * `,mh` - Hides an individual mark.
+ * `,ma` - Hides all marks in the current buffer.
+ * `,mm` - Places the next available mark.
+
+#### Text objects
+
+ * Standards: `w` - word, `W` - WORD, `s` - sentence, `p` - paragraph.
+ * Standards: quotations ` ` "" ''. Cursor does not need be inside the quotes.
+ * Standards: braces `)` = `b`; `]` `}` = `B`.
+ * Standards: `t` - (t)ag block; `>` - single tag. E.g. <h2>Sample Title</h2>.
+ * `i` - (i)ndentation level (with and without line above).
+ * `ic` - (i)nline (C)omment from tcomment plugin.
+ * `ac` - (a) (c)olumn based on "a word" `aw`.
+ * `C` - (C)OLUMN based on "WORD" `W`.
+ * `e` - (e)ntire content of the current buffer. Achieves `ggVG`, but more handy. `i` does not include leading and trailing empty lines.
+ * `f` - (f)unction.
+ * `F` - (F)unction with leading or trailing blank lines.
+ * `_` - word delimited by underscore (with and without underscore).
+ * `a` - function (a)rgument.
+ * `q` - (q)uote. All quotes are supported "" '' ` `.
+ * `j` - brace. All braces are supported {} [] ().
+ * `n{text object}` - next text object.
+ * `l{text object}` - last (previous) text object.
+ * `,ci` - Change inside surrounding, supports {}, (), "", <>, [], '', ``.
+ * `,cas` - Change around surrounding, supports {}, (), "", <>, [], '', ``.
 
 #### File Navigation
 
  * `,t` - CtrlP fuzzy file selector
  * `,b` - CtrlP buffer selector - great for jumping to a file you already have open
  * `Cmd-Shift-M` - jump to method - CtrlP tag search within current buffer
- * `,jm` jump to models. Other `,j` mappings: `,jc` for controllers, `,jh` for helpers, etc. If you think of a concept and a letter, we've got you covered.
  * `Cmd-Shift-N` - NERDTree toggle (`Alt` in Linux)
  * `Ctrl-\` - Show current file in NERDTree
  * `Cmd-Shift-P` - Clear CtrlP cache
@@ -220,6 +258,8 @@ of plugins above to learn more.
  * `Ctrl-p` after pasting - Use `p` to paste and `Ctrl-p` to cycle through previous pastes. Provided by YankRing.
  * `,yr` - view the yankring - a list of your previous copy commands. also you can paste and hit `ctrl-p` for cycling through previous copy commands
  * `crs`, `crc`, `cru` via abolish.vim, coerce to snake_case, camelCase, and UPPERCASE. There are more `:help abolish`
+ * `:Abolish` - corrects typing, e.g. `:Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or}  {despe,sepa}rat{}`
+ * `:%Subvert` - smart substitution, e.g. `:%Subvert/facilit{y,ies}/building{,s}/g`. `:S` is the short form of `:Subvert`.
  * `:NR` - NarrowRgn - use this on a bit of selected text to create a new split with just that text. Do some work on it, then :wq it to get the results back.
  * `,ig` - toggle visual indentation guides
  * `,cf` - Copy Filename of current file (full path) into system (not vi) paste buffer
@@ -235,12 +275,53 @@ of plugins above to learn more.
  * `,hp` - Html Preview (open in Safari)
  * `Cmd-Shift-A` - align things (type a character/expression to align by, works in visual mode or by itself) (`Alt` in Linux)
  * `:ColorToggle` - turn on #abc123 color highlighting (useful for css)
- * `:Gitv` - Git log browsers
  * `,hi` - show current Highlight group. if you don't like the color of something, use this, then use `hi! link [groupname] [anothergroupname]` in your vimrc.after to remap the color. You can see available colors using `:hi`
  * `,gt` - Go Tidy - tidy up your html code (works on a visual selection)
  * `:Wrap` - wrap long lines (e.g. when editing markdown files)
  * `Cmd-/` - toggle comments (usually gcc from tComment) (`Alt` in Linux)
- * `gcp` (comment a paragraph)
+ * `gcp` - toggle comment for a paragraph.
+ * `gcc` - toggle comment for the current line.
+ * `gc{motion}` - toggle comments. `gc` in visual mode.
+ * `gc<count>{motion}` - toggle comments with count argument.
+ * `<S-BS>` - <Plug>delimitMateS-BS, delete the closing delimiter.
+ * `<C-a>` - jump over single quotes in insert mode.
+ * `<C-G>g` - <Plug>delimitMateJumpMany, jump over delimiters / quotes.
+ * `:Tab /{pattern}` - Align texts at pattern, e.g. `:Tab /=`, align at '='; `:Tab /:\zs`, align at the first character after '='.
+ * `,u` - toggle undo graph.
+ * `cs<op><op>` - change surrounding. For example, `cs"'` changes `"Hello World!"` to `'Hello World!'`; `cs'<q>`, `cst"`.
+ * `ds<op>` - delete surrounding. For example, `dst` deletes tag surrounding.
+ * `ys<text object><op>` - insert surrounding. For example, `ysiw]` surrounds word object with `]`.
+ * `yss<op>` - insert surrounding around the entire line.
+ * `S<op>` - insert surrounding in visual mode.
+ * `:Hexmode` - toggle hex mode.
+ * `,q/` - Open a quickfix window for the last search.
+ * `,qa/` - Ag for the last search.
+
+#### Vim unimpaired
+
+ * `[q` - `:cprevious`
+ * `]q` - `:cnext`
+ * `[Q` - `:cfirst`
+ * `]Q` - `:clast`
+ * `[f` - go to previous file.
+ * `]f` - go to next file.
+ * `[n` - go to previous conflict marker.
+ * `]n` - go to next conflict marker.
+ * `[<space>` - add [count] blank lines above the cursor.
+ * `]<space>` - add [count] blank lines below the cursor.
+ * `[e` - exchange the current line with [count] line above it.
+ * `]e` - exchange the current line with [count] line below it.
+ * `[ob` `]ob` `cob` - on/off/toggle background.
+ * `[on` `]on` `con` - on/off/toggle line number.
+ * `[ow` `]ow` `cow` - on/off/toggle wrap.
+ * `[x{motion}` `]x{motion}` `[xx` `]xx` `{Visual}[x` `{Visual}]x` - Xml encode/decode.
+ * `[u{motion}` `]u{motion}` `[uu` `]uu` `{Visual}[u` `{Visual}]u` - Url encode/decode.
+ * `[y{motion}` `]y{motion}` `[yy` `]yy` `{Visual}[y` `{Visual}]y` - C string encode/decode.
+
+#### Git
+
+ * `:Gitv` - Git log browsers. `:Gitv` browser mode; `:Gitv!` file mode. `D` diffing file.
+ * vim-fugitive - Git wrappers. `:Gmove`, `:Gremove`, `:Gblame`, `:Ggrep`, `:Gread` (git checkout), `:Gwrite`, `:Glog`, `:Gedit` (go back to working tree version, e.g. after `Glog`, `Gblame` etc), `:Gdiff`, `:Gbrowse`, `:Git`.
 
 #### Rails & Ruby
 

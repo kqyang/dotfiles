@@ -13,3 +13,7 @@ Bundle "nathanaelkane/vim-indent-guides"
 Bundle "nelstrom/vim-textobj-rubyblock"
 Bundle "thinca/vim-textobj-function-javascript"
 Bundle "vim-scripts/argtextobj.vim"
+" TODO: Unify the below two plugins and deprecate change-inside... plugin.
+Bundle "Julian/vim-textobj-brace"
+Bundle 'beloglazov/vim-textobj-quotes'
+Bundle "briandoll/change-inside-surroundings.vim.git"
