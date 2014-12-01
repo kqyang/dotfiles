@@ -209,7 +209,7 @@ of plugins above to learn more.
  * Standards: `w` - word, `W` - WORD, `s` - sentence, `p` - paragraph.
  * Standards: quotations ` ` "" ''. Cursor does not need be inside the quotes.
  * Standards: braces `)` = `b`; `]` `}` = `B`.
- * Standards: `t` - (t)ag block; `>` - single tag. E.g. <h2>Sample Title</h2>.
+ * Standards: `t` - (t)ag block; `>` - single tag. E.g. `<h2>Sample Title</h2>`.
  * `i` - (i)ndentation level (with and without line above).
  * `ic` - (i)nline (C)omment from tcomment plugin.
  * `ac` - (a) (c)olumn based on "a word" `aw`.
