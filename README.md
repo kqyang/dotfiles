@@ -46,6 +46,12 @@ about each one, use:
 sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`" -s ask
 ```
 
+You need to install the below packages first if not already installed:
+
+```bash
+sudo apt-get install git rake curl command-not-found tmux
+```
+
 ## Wait, you're not done! Do this:
 
 * **Install iTerm Solarized Colors** - YADR will install Solarized colorschemes into your iTerm. Go to Profiles => Colors => Load Presets to pick Solarized Dark.
