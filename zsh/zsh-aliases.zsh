@@ -33,3 +33,12 @@ alias -s txt=$EDITOR
 alias -s html=$BROWSER
 alias -s mp4=$BROWSER
 alias -s pdf=$BROWSER
+
+# Start tmux and attach to session 'remote' on ssh automatically.
+if [[ -z "$TMUX" && -z "$EMACS" && -z "$VIM" ]] && [[ -n "$SSH_TTY" ]]; then
+  if tmux has-session -t "remote" 2> /dev/null; then
+    tmux -2 attach-session -t "remote"
+  else
+    tmux -2 new-session -s "remote"
+  fi
+fi
