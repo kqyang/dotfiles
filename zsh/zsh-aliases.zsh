@@ -25,6 +25,7 @@ export TERM=screen-256color-bce
 
 alias -s gz='tar -xzvf'
 alias -s bz2='tar -xjvf'
+alias -s xz='tar xpvf'
 alias -s zip='unzip'
 alias -s h=$EDITOR
 alias -s c=$EDITOR
