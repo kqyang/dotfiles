@@ -328,6 +328,7 @@ of plugins above to learn more.
 
  * `:Gitv` - Git log browsers. `:Gitv` browser mode; `:Gitv!` file mode. `D` diffing file.
  * vim-fugitive - Git wrappers. `:Gmove`, `:Gremove`, `:Gblame`, `:Ggrep`, `:Gread` (git checkout), `:Gwrite`, `:Glog`, `:Gedit` (go back to working tree version, e.g. after `Glog`, `Gblame` etc), `:Gdiff`, `:Gbrowse`, `:Git`.
+ * Gitgutter `]c [c` jump to next and previous hunk. `,ha` stage hunk. `,hr` revert hunk. `,hv` preview hunk.
 
 #### Rails & Ruby
 
