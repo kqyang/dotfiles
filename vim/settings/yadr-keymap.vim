@@ -97,11 +97,6 @@ nnoremap <silent> ,x :bn<CR>
 " nnoremap <silent> <C-k> <C-w>k
 " nnoremap <silent> <C-j> <C-w>j
 
-" Make gf (go to file) create the file, if not existent
-nnoremap gf :e<cfile><CR>
-nnoremap <C-w>f :sp +e<cfile><CR>
-nnoremap <C-w>gf :tabe<cfile><CR>
-
 " Zoom in
 map <silent> ,gz <C-w>o
 
@@ -151,6 +146,8 @@ map yl :,/^$/y<CR>
 map dl :,/^$/d<CR>
 map <C-C> "+y
 map <C-V> "+p
+
+imap jk <Esc>
 
 " ============================
 " SplitJoin plugin
