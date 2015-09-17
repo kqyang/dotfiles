@@ -147,6 +147,8 @@ map dl :,/^$/d<CR>
 map <C-C> "+y
 map <C-V> "+p
 
+nnoremap <F8> :%s/\<<C-r><C-w>\>/
+
 imap jk <Esc>
 
 " ============================
