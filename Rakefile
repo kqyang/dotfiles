@@ -25,7 +25,7 @@ task :install => [:submodule_init, :submodules] do
     Rake::Task["install_vundle"].execute
   end
   # Workaround gvim border issue: http://stackoverflow.com/questions/9265984/strange-gvim-inner-borders
-  file_operation(Dir.glob('gtk/*')) if RUBY_PLATFORM.downcase.include?("linux")
+  install_files(Dir.glob('gtk/*')) if RUBY_PLATFORM.downcase.include?("linux")
 
   Rake::Task["install_prezto"].execute
 
