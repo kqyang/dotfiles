@@ -10,11 +10,11 @@ function! GetVisual()
   return '"' . substitute(selection, '"', '\\"', 'g') . '"'
 endfunction
 
-"grep the current word using K (mnemonic Kurrent)
-nnoremap <silent> K :Ag <cword><CR>
+"grep the current word using ,k (mnemonic Kurrent)
+nnoremap <silent> ,k :Ag <cword><CR>
 
 "grep visual selection
-vnoremap K :<C-U>execute "Ag " . GetVisual()<CR>
+vnoremap ,k :<C-U>execute "Ag " . GetVisual()<CR>
 
 "grep current word up to the next exclamation point using ,K
 nnoremap ,K viwf!:<C-U>execute "Ag " . GetVisual()<CR>
@@ -56,18 +56,6 @@ command! -nargs=1 Cs :call SearchWithUrl(g:vim_g_cs_url, <f-args>)
 
 nnoremap <silent> ,cs :Cs <cword><CR>
 vnoremap <silent> ,cs :<C-U>execute "Cs " . GetVisual()<CR>
-
-"Grep Current Partial
-function! AgCurrentPartial()
-  let l:fileNameWithoutExtension = expand('%:t:r')
-  let l:fileNameWithoutUnderscore = substitute(l:fileNameWithoutExtension, '^_','','g')
-  let l:grepPattern = "render.*[\\\'\\\"].*" . l:fileNameWithoutUnderscore . "[\\\'\\\"]$"
-  exec 'Ag "' . l:grepPattern . '"'
-endfunction
-
-command! AgCurrentPartial call AgCurrentPartial()
-"
-nnoremap ,gcp :AgCurrentPartial<CR>
 
 "Grep for usages of the current file
 nnoremap ,gcf :exec "Ag " . expand("%:t:r")<CR>
