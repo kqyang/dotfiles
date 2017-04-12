@@ -1,0 +1,5 @@
+*.flv diff=bin
+*.ts diff=bin
+*.m4s diff=bin
+*.mp4 diff=bin
+*.webm diff=bin

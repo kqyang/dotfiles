@@ -94,6 +94,9 @@
   ctags = !.git/hooks/ctags
   export = push origin HEAD:refs/for/master
   draft = push origin HEAD:refs/drafts/master
+  ll = log --stat
+  lg = log
+  lp = log -p
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
@@ -122,6 +125,7 @@
   filemode = false
   editor = vim
   excludesfile = ~/.yadr/git/gitignore
+  attributesfile = ~/.yadr/git/gitattributes
 [advice]
   statusHints = false
 [diff]
@@ -130,6 +134,8 @@
   mnemonicprefix = true
   algorithm = patience
   tool = meld
+[diff "bin"]
+  textconv = hexdump -v -C
 [difftool]
   prompt = false
 [rerere]

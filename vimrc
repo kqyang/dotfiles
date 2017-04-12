@@ -113,9 +113,6 @@ com! DiffSaved call s:DiffWithSaved()
 
 " To get syntax highlighting and tab settings for gyp(i) and DEPS files,
 augroup filetype
-  au! BufRead,BufNewFile *.gyp    set filetype=python expandtab tabstop=2 shiftwidth=2
-  au! BufRead,BufNewFile *.gypi   set filetype=python expandtab tabstop=2 shiftwidth=2
-  au! BufRead,BufNewFile DEPS     set filetype=python expandtab tabstop=2 shiftwidth=2
   au! BufRead,BufNewFile *.vundle set filetype=vim    expandtab tabstop=2 shiftwidth=2
 augroup END
 
@@ -123,6 +120,42 @@ augroup END
 set tabstop=2 shiftwidth=2 expandtab
 
 set makeprg=ninja\ -C\ out/Debug
+
+autocmd BufEnter * call s:OnEnterBuf()
+
+python << EOF
+def findRepoDirFrom(firstdir):
+  dir = firstdir
+  while True:
+    exist = False
+    for repodir in ['.git', '.svn']:
+      if os.path.exists(os.path.join(dir, repodir)):
+        return dir
+
+    prevdir = dir
+    dir = os.path.dirname(dir)
+    if dir == prevdir:
+      return ''
+EOF
+
+function! s:ExistPattern(bufname)
+python << EOF
+bufname = vim.eval('a:bufname')
+path = findRepoDirFrom(bufname)
+if os.path.isdir(path):
+  g3_path = os.path.join(path, 'google3')
+  if os.path.isdir(g3_path):
+    path = g3_path
+  vim.command('return [1, \'%s\']' % path)
+EOF
+endfunction
+
+function! s:OnEnterBuf()
+  let path = expand('%:p')
+  let directory = s:ExistPattern(path)[1]
+  " silent !echom "Change directory: " . directory
+  silent execute 'cd' fnameescape(directory)
+endfunction
 
 " ================ Custom Settings ========================
 so ~/.yadr/vim/settings.vim
