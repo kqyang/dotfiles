@@ -2,6 +2,8 @@
 " For example the Ruby one introduces the 'r' text object
 " such that 'var' gives you Visual Around Ruby
 Bundle "austintaylor/vim-indentobject"
+Bundle "bkad/CamelCaseMotion"
+map <silent> ,w <Plug>CamelCaseMotion_w
 Bundle "bootleq/vim-textobj-rubysymbol"
 Bundle "coderifous/textobj-word-column.vim"
 Bundle "kana/vim-textobj-datetime"
@@ -13,3 +15,4 @@ Bundle "nathanaelkane/vim-indent-guides"
 Bundle "nelstrom/vim-textobj-rubyblock"
 Bundle "thinca/vim-textobj-function-javascript"
 Bundle "vim-scripts/argtextobj.vim"
+Bundle "wellle/targets.vim"
