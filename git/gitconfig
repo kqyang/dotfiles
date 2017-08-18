@@ -121,8 +121,8 @@
   default = upstream
 [core]
   deltaBaseCacheLimit = 1G
-  autocrlf = false
-  filemode = false
+	autocrlf = false
+	filemode = false
   editor = vim
   excludesfile = ~/.yadr/git/gitignore
   attributesfile = ~/.yadr/git/gitattributes
@@ -148,3 +148,18 @@
   style = Chromium
 [init]
   templatedir = ~/.git_template
+[http]
+	cookiefile = /usr/local/google/home/kqyang/.gitcookies
+[user]
+	name = KongQun Yang
+	email = kqyang@google.com
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = kqyang@google.com
+	smtpServerPort = 587
+[sendmail]
+	from = KongQun Yang <kqyang@google.com>
+	confirm = always
+[credential]
+	helper = netrc
