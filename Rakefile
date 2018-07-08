@@ -180,8 +180,8 @@ def install_homebrew
   puts "======================================================"
   # Required by clang-format
   run %{brew link makedepend}
-  run %{brew install zsh clang-format cmake ctags git hub tmux reattach-to-user-namespace the_silver_searcher ghi hub}
-  run %{brew install macvim --custom-icons --with-override-system-vim --with-lua --with-luajit}
+  run %{brew install zsh clang-format cmake ctags git hub tmux reattach-to-user-namespace the_silver_searcher ghi}
+  run %{brew install macvim --with-override-system-vim --with-lua --with-luajit --with-python@2}
   puts
   puts
 end
