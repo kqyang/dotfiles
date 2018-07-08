@@ -6,4 +6,4 @@
 " using tComment's built in <c-_>p mapping
 nmap <silent> gcp <c-_>p
 
-call tcomment#DefineType('tmux',          '# %s'             )
+call tcomment#type#Define('tmux',          '# %s'             )
