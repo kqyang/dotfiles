@@ -54,7 +54,11 @@ sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/instal
 You need to install the below packages first if not already installed:
 
 ```bash
-sudo apt-get install git rake curl command-not-found tmux
+sudo apt-get install git rake curl command-not-found tmux python-pip python3-pip
+pip install absl-py --user
+pip install python-ptrace --user
+pip3 install absl-py --user
+pip3 install python-ptrace --user
 ```
 
 ## Wait, you're not done! Do this:
