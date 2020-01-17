@@ -121,7 +121,7 @@ augroup filetype
   au! BufRead,BufNewFile *.vundle set filetype=vim    expandtab tabstop=2 shiftwidth=2
 augroup END
 
-" au Filetype python setl expandtab tabstop=2 shiftwidth=2
+au Filetype python setl expandtab tabstop=2 shiftwidth=2
 set tabstop=2 shiftwidth=2 expandtab
 
 set makeprg=ninja\ -C\ out/Debug

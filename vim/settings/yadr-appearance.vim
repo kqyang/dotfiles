@@ -9,7 +9,7 @@ if has("gui_running")
   set lines=60
   set columns=190
 
-  if has("gui_gtk2")
+  if has("gui_gtk2") || has("gui_gtk3")
     set guifont=DejaVu\ Sans\ Mono\ 12,Inconsolata\ 13,Inconsolata\ XL\ 12,Monaco\ 12
   else
     set guifont=Monaco:h14,Inconsolata:h17,Inconsolata\ XL:h14,
