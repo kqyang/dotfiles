@@ -128,7 +128,7 @@ set makeprg=ninja\ -C\ out/Debug
 
 autocmd BufEnter * call s:OnEnterBuf()
 
-python << EOF
+python3 << EOF
 def findRepoDirFrom(firstdir):
   dir = firstdir
   while True:
@@ -144,7 +144,8 @@ def findRepoDirFrom(firstdir):
 EOF
 
 function! s:ExistPattern(bufname)
-python << EOF
+python3 << EOF
+import os
 bufname = vim.eval('a:bufname')
 path = findRepoDirFrom(bufname)
 if os.path.isdir(path):
